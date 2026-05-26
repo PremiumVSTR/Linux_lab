@@ -181,3 +181,17 @@ main:
 ## 2. Установка Linux
 Видео доступно по ссылке: https://disk.yandex.ru/i/MXhHaN-ZgR5FAA
 ## 3.
+Создали файл скрипт сразу с кодом
+<img width="460" height="68" alt="image" src="https://github.com/user-attachments/assets/f6aebf15-d9cd-4e15-b877-97531ca42c51" />
+
+Сделал файл исполняемым
+<img width="331" height="15" alt="image" src="https://github.com/user-attachments/assets/4ef0f281-342a-4cde-8472-38bf32864b96" />
+
+Тесты
+<img width="422" height="68" alt="image" src="https://github.com/user-attachments/assets/bcf159db-25eb-497f-bf1d-c88a95755603" />
+<img width="592" height="43" alt="image" src="https://github.com/user-attachments/assets/d4c36c49-3f6e-4301-8ab6-ad19f022874f" />
+
+
+Тестируем
+<img width="534" height="345" alt="image" src="https://github.com/user-attachments/assets/05af5459-48c6-4122-b528-6108dc232a76" />
+
