@@ -1,18 +1,20 @@
 # Linux_lab
 
-1. Реализация функции на C++
+## 1. Реализация функции на C++
+
 <img width="297" height="174" alt="image" src="https://github.com/user-attachments/assets/177c2849-1e9b-4601-8613-a716f472dff5" />
 
-Компиляция и запуск
+### Компиляция и запуск
 
 <img width="409" height="69" alt="image" src="https://github.com/user-attachments/assets/7a6f67df-615f-4fdd-b6b6-4be75c49eff1" />
 
-2. Компиляция в ассемблерский код с разными оптимизациями
-3. 
+## 2. Компиляция в ассемблерский код с разными оптимизациями
+
 <img width="473" height="148" alt="image" src="https://github.com/user-attachments/assets/fd01fa17-a2f7-4c0e-85cf-4a054034fa9d" />
+
 <img width="215" height="181" alt="image" src="https://github.com/user-attachments/assets/fa18bd2f-8deb-4832-86a8-7516c68cb6b7" />
 
-Без оптимизации (-O0)
+### Без оптимизации (-O0)
 ```
 	.file	"program.cpp"
 	.text
@@ -103,52 +105,51 @@ _ZNSt8__detail30__integer_to_chars_is_unsignedIyEE:
 .refptr._ZSt4cout:
 	.quad	_ZSt4cout
 ```
-3. Преобразование программы в модульную и разработка Makefile
+
+## 3. Преобразование программы в модульную и разработка Makefile
 
 <img width="235" height="127" alt="image" src="https://github.com/user-attachments/assets/e3f34a5b-494d-475e-99fb-de732eb629c4" />
 
-main.cpp
+### main.cpp
 
 <img width="344" height="183" alt="image" src="https://github.com/user-attachments/assets/e3155691-e863-4e19-9221-e864dff92f22" />
 
-sum.cpp
+### sum.cpp
 
 <img width="293" height="193" alt="image" src="https://github.com/user-attachments/assets/eb4fc877-c8df-43fe-a6a5-48bf5a344e57" />
 
-sum.h
+### sum.h
 
 <img width="217" height="109" alt="image" src="https://github.com/user-attachments/assets/cd37a9ed-7fbe-4adb-bc25-1fe5c41873dc" />
 
-Создаем Makefile
+### Makefile
 
 <img width="433" height="338" alt="image" src="https://github.com/user-attachments/assets/8ae0d48b-eb80-40df-a1d1-2b8cc9aca4e5" />
 
-Собираем
+### Сборка
 
 <img width="279" height="94" alt="image" src="https://github.com/user-attachments/assets/0afdb0b4-6485-414f-877e-a40c7a9291f2" />
 
-Тестируем
+### Тестирование
 
 <img width="244" height="49" alt="image" src="https://github.com/user-attachments/assets/69ab1404-2c4c-4549-8b38-4360faf897ad" />
 
-4. Усовершенствование программы
-Добавление параллельного потока и синхронизации
+## 4. Усовершенствование программы
+
+### Добавление параллельного потока и синхронизации
 
 <img width="582" height="583" alt="image" src="https://github.com/user-attachments/assets/57250f89-9fa5-439a-b8c8-fb095c1d357e" />
 
-
-Меняем Makefile с учетом изменений
+### Makefile с учетом изменений
 
 <img width="441" height="330" alt="image" src="https://github.com/user-attachments/assets/ec5f0223-f9e8-41d5-b112-42503906b368" />
 
-Тестируем(из-за неправильного вывода русского языка я заменил все на английский)
+### Тестирование (вывод на английском языке)
 
 <img width="379" height="483" alt="image" src="https://github.com/user-attachments/assets/31e519d6-a04b-499f-a320-27470c051794" />
 
+### Общий ресурс
 
-
-Файл result.txt используется как общий ресурс для обмена данными между параллельными потоками с синхронизацией через join().
+Файл `result.txt` используется как общий ресурс для обмена данными между параллельными потоками с синхронизацией через `join()`.
 
 <img width="231" height="218" alt="image" src="https://github.com/user-attachments/assets/d4b0454e-b148-421d-9d64-8f22b0b0a5e5" />
-
-
