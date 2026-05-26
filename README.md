@@ -4,8 +4,11 @@
 <img width="297" height="174" alt="image" src="https://github.com/user-attachments/assets/177c2849-1e9b-4601-8613-a716f472dff5" />
 
 Компиляция и запуск
+
 <img width="409" height="69" alt="image" src="https://github.com/user-attachments/assets/7a6f67df-615f-4fdd-b6b6-4be75c49eff1" />
+
 2. Компиляция в ассемблерский код с разными оптимизациями
+3. 
 <img width="473" height="148" alt="image" src="https://github.com/user-attachments/assets/fd01fa17-a2f7-4c0e-85cf-4a054034fa9d" />
 <img width="215" height="181" alt="image" src="https://github.com/user-attachments/assets/fa18bd2f-8deb-4832-86a8-7516c68cb6b7" />
 
