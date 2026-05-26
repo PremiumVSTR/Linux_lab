@@ -201,3 +201,10 @@ main:
 
 <img width="534" height="345" alt="image" src="https://github.com/user-attachments/assets/05af5459-48c6-4122-b528-6108dc232a76" />
 
+## Лабораторная работа 3b
+### Вариант 4.
+
+<img width="694" height="244" alt="image" src="https://github.com/user-attachments/assets/d2f069a0-f865-4a2e-8ef3-f50ac39f3ff3" />
+
+<img width="686" height="122" alt="image" src="https://github.com/user-attachments/assets/74713c16-5783-4957-854f-1cab1c2ee610" />
+
