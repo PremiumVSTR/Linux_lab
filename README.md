@@ -204,7 +204,11 @@ main:
 ## Лабораторная работа 3b
 ### Вариант 4.
 
-<img width="694" height="244" alt="image" src="https://github.com/user-attachments/assets/d2f069a0-f865-4a2e-8ef3-f50ac39f3ff3" />
+<img width="339" height="49" alt="image" src="https://github.com/user-attachments/assets/b6f9f917-f6b5-4284-9e4c-3ce631def3f2" />
 
-<img width="686" height="122" alt="image" src="https://github.com/user-attachments/assets/74713c16-5783-4957-854f-1cab1c2ee610" />
+<img width="686" height="179" alt="image" src="https://github.com/user-attachments/assets/3263a34e-8525-4a9b-af61-5eaf540c5450" />
+
+<img width="674" height="80" alt="image" src="https://github.com/user-attachments/assets/b383c58f-9f91-49e1-826c-fc63f83cb65e" />
+
+<img width="480" height="83" alt="image" src="https://github.com/user-attachments/assets/2672ddfe-1fbf-443f-87a5-ac2da5af4658" />
 
