@@ -1,4 +1,4 @@
-# Linux_lab
+<img width="235" height="127" alt="image" src="https://github.com/user-attachments/assets/e034bbb0-9576-49d2-a808-6b3788a89773" /># Linux_lab
 
 1. Реализация функции на C++
 <img width="297" height="174" alt="image" src="https://github.com/user-attachments/assets/177c2849-1e9b-4601-8613-a716f472dff5" />
@@ -103,4 +103,52 @@ _ZNSt8__detail30__integer_to_chars_is_unsignedIyEE:
 .refptr._ZSt4cout:
 	.quad	_ZSt4cout
 ```
+3. Преобразование программы в модульную и разработка Makefile
+
+<img width="235" height="127" alt="image" src="https://github.com/user-attachments/assets/e3f34a5b-494d-475e-99fb-de732eb629c4" />
+
+main.cpp
+
+<img width="344" height="183" alt="image" src="https://github.com/user-attachments/assets/e3155691-e863-4e19-9221-e864dff92f22" />
+
+sum.cpp
+
+<img width="293" height="193" alt="image" src="https://github.com/user-attachments/assets/eb4fc877-c8df-43fe-a6a5-48bf5a344e57" />
+
+sum.h
+
+<img width="217" height="109" alt="image" src="https://github.com/user-attachments/assets/cd37a9ed-7fbe-4adb-bc25-1fe5c41873dc" />
+
+Создаем Makefile
+
+<img width="433" height="338" alt="image" src="https://github.com/user-attachments/assets/8ae0d48b-eb80-40df-a1d1-2b8cc9aca4e5" />
+
+Собираем
+
+<img width="279" height="94" alt="image" src="https://github.com/user-attachments/assets/0afdb0b4-6485-414f-877e-a40c7a9291f2" />
+
+Тестируем
+
+<img width="244" height="49" alt="image" src="https://github.com/user-attachments/assets/69ab1404-2c4c-4549-8b38-4360faf897ad" />
+
+4. Усовершенствование программы
+Добавление параллельного потока и синхронизации
+
+<img width="582" height="583" alt="image" src="https://github.com/user-attachments/assets/57250f89-9fa5-439a-b8c8-fb095c1d357e" />
+
+
+Меняем Makefile с учетом изменений
+
+<img width="441" height="330" alt="image" src="https://github.com/user-attachments/assets/ec5f0223-f9e8-41d5-b112-42503906b368" />
+
+Тестируем(из-за неправильного вывода русского языка я заменил все на английский)
+
+<img width="379" height="483" alt="image" src="https://github.com/user-attachments/assets/31e519d6-a04b-499f-a320-27470c051794" />
+
+
+
+Файл result.txt используется как общий ресурс для обмена данными между параллельными потоками с синхронизацией через join().
+
+<img width="231" height="218" alt="image" src="https://github.com/user-attachments/assets/d4b0454e-b148-421d-9d64-8f22b0b0a5e5" />
+
 
