@@ -178,3 +178,5 @@ main:
 <img width="230" height="196" alt="image" src="https://github.com/user-attachments/assets/505d5267-07a6-42b6-93d4-f36844547fb9" />
 <img width="242" height="65" alt="image" src="https://github.com/user-attachments/assets/86373476-7624-46fb-9072-94ecd1f37c9a" />
 
+## 2. Установка Linux
+## 3.
