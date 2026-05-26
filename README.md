@@ -150,21 +150,21 @@ main:
 
 ### Сборка
 
-<img width="279" height="94" alt="image" src="https://github.com/user-attachments/assets/0afdb0b4-6485-414f-877e-a40c7a9291f2" />
+<img width="369" height="77" alt="image" src="https://github.com/user-attachments/assets/6790f786-b44b-412f-9f4e-306808e4d1f8" />
 
 ### Тестирование
 
-<img width="244" height="49" alt="image" src="https://github.com/user-attachments/assets/69ab1404-2c4c-4549-8b38-4360faf897ad" />
+<img width="372" height="119" alt="image" src="https://github.com/user-attachments/assets/fe983716-dd18-46b4-9b04-76d435356585" />
 
 ## 4. Усовершенствование программы
 
 ### Добавление параллельного потока и синхронизации
 
-<img width="582" height="583" alt="image" src="https://github.com/user-attachments/assets/57250f89-9fa5-439a-b8c8-fb095c1d357e" />
+<img width="501" height="559" alt="image" src="https://github.com/user-attachments/assets/bd9bd50f-66dc-4ce9-90bb-a6f11531a498" />
 
 ### Makefile с учетом изменений
 
-<img width="441" height="330" alt="image" src="https://github.com/user-attachments/assets/ec5f0223-f9e8-41d5-b112-42503906b368" />
+<img width="547" height="341" alt="image" src="https://github.com/user-attachments/assets/eef66ef0-3e55-4916-bb70-af372781d799" />
 
 ### Тестирование (вывод на английском языке)
 
