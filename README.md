@@ -166,12 +166,14 @@ main:
 
 <img width="547" height="341" alt="image" src="https://github.com/user-attachments/assets/eef66ef0-3e55-4916-bb70-af372781d799" />
 
-### Тестирование (вывод на английском языке)
+### Тестирование
 
-<img width="379" height="483" alt="image" src="https://github.com/user-attachments/assets/31e519d6-a04b-499f-a320-27470c051794" />
+<img width="468" height="273" alt="image" src="https://github.com/user-attachments/assets/0339b0d4-3df5-4391-999e-7ec0571ce3d0" />
+
 
 ### Общий ресурс
 
 Файл `result.txt` используется как общий ресурс для обмена данными между параллельными потоками с синхронизацией через `join()`.
 
-<img width="231" height="218" alt="image" src="https://github.com/user-attachments/assets/d4b0454e-b148-421d-9d64-8f22b0b0a5e5" />
+<img width="230" height="196" alt="image" src="https://github.com/user-attachments/assets/505d5267-07a6-42b6-93d4-f36844547fb9" />
+
