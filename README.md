@@ -179,4 +179,5 @@ main:
 <img width="242" height="65" alt="image" src="https://github.com/user-attachments/assets/86373476-7624-46fb-9072-94ecd1f37c9a" />
 
 ## 2. Установка Linux
+Видео доступно по ссылке: https://disk.yandex.ru/i/MXhHaN-ZgR5FAA
 ## 3.
