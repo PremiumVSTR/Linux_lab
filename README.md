@@ -2,129 +2,151 @@
 
 ## 1. Реализация функции на C++
 
-<img width="297" height="174" alt="image" src="https://github.com/user-attachments/assets/177c2849-1e9b-4601-8613-a716f472dff5" />
+<img width="369" height="398" alt="image" src="https://github.com/user-attachments/assets/cb5078a9-5877-4907-9821-b1570b5592a9" />
 
 ### Компиляция и запуск
 
-<img width="409" height="69" alt="image" src="https://github.com/user-attachments/assets/7a6f67df-615f-4fdd-b6b6-4be75c49eff1" />
+<img width="424" height="104" alt="image" src="https://github.com/user-attachments/assets/d6d12f0c-cc99-4de4-bbb8-f23468db24f1" />
 
 ## 2. Компиляция в ассемблерский код с разными оптимизациями
 
-<img width="473" height="148" alt="image" src="https://github.com/user-attachments/assets/fd01fa17-a2f7-4c0e-85cf-4a054034fa9d" />
+<img width="537" height="170" alt="image" src="https://github.com/user-attachments/assets/0585bc2d-b760-4627-890f-d7a6a7212f10" />
 
-<img width="215" height="181" alt="image" src="https://github.com/user-attachments/assets/fa18bd2f-8deb-4832-86a8-7516c68cb6b7" />
+<img width="204" height="200" alt="image" src="https://github.com/user-attachments/assets/36028503-c5e7-48cf-a0f9-925cadad3350" />
 
 ### Без оптимизации (-O0)
 ```
-	.file	"program.cpp"
+		.file	"fibonacci.cpp"
 	.text
 	.section .rdata,"dr"
 .LC0:
-	.ascii "Sum = \0"                    # ФОРМАТНАЯ СТРОКА для вывода "Sum = "
+	.ascii "Fibonacci F(\0"              # Строка "Fibonacci F("
+.LC1:
+	.ascii ") = \0"                       # Строка ") = "
 	.text
 	.globl	main
 	.def	main;	.scl	2;	.type	32;	.endef
 	.seh_proc	main
 main:
 .LFB2239:
-	# === ПРОЛОГ ФУНКЦИИ (подготовка стека) ===
-	pushq	%rbp                         # сохраняем старый %rbp
+	# === ПРОЛОГ ФУНКЦИИ ===
+	pushq	%rbp
 	.seh_pushreg	%rbp
-	movq	%rsp, %rbp                   # устанавливаем новый кадр стека
+	movq	%rsp, %rbp
 	.seh_setframe	%rbp, 0
-	subq	$48, %rsp                    # выделяем 48 байт на стеке под локальные переменные
-	.seh_stackalloc	48
+	subq	$64, %rsp                    # Выделяем 64 байта на стеке
+	.seh_stackalloc	64
 	.seh_endprologue
-	call	__main                       # инициализация C++ (конструкторы глобальных объектов)
+	call	__main
 	
-	# === 1. ПЕРЕМЕННЫЕ ===
-	movl	$0, -4(%rbp)                 # sum = 0  (переменная sum, лежит на стеке по адресу rbp-4)
-	movl	$1, -8(%rbp)                 # i = 1    (переменная i, лежит на стеке по адресу rbp-8)
+	# === ПЕРЕМЕННЫЕ ===
+	movl	$10, -16(%rbp)               # n = 10
+	movl	$0, -4(%rbp)                 # a = 0
+	movl	$1, -8(%rbp)                 # b = 1
 	
-	# === 2. ПЕРВЫЙ ПРЫЖОК НА ПРОВЕРКУ УСЛОВИЯ ===
-	jmp	.L2                          # переходим к проверке условия (не заходя в тело цикла)
+	# === ВЫВОД "Fibonacci F(" ===
+	leaq	.LC0(%rip), %rax
+	movq	%rax, %rdx
+	movq	.refptr._ZSt4cout(%rip), %rax
+	movq	%rax, %rcx
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
 	
-	# === 3. ТЕЛО ЦИКЛА (НАЧАЛО) ===
-.L3:
-	movl	-8(%rbp), %eax               # загружаем значение i в регистр eax
-	addl	%eax, -4(%rbp)               # sum = sum + i (прибавляем eax к sum)
-	addl	$1, -8(%rbp)                 # i++ (увеличиваем счётчик i на 1)
-	# === ТЕЛО ЦИКЛА (КОНЕЦ) ===
+	# === ВЫВОД ЧИСЛА n ===
+	movq	%rax, %rcx
+	movl	-16(%rbp), %eax
+	movl	%eax, %edx
+	call	_ZNSolsEi
 	
-	# === 4. ПРОВЕРКА УСЛОВИЯ ВЫХОДА ИЗ ЦИКЛА ===
+	# === ВЫВОД ") = " ===
+	movq	%rax, %rcx
+	leaq	.LC1(%rip), %rax
+	movq	%rax, %rdx
+	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+	
+	# === ПРОВЕРКА: if (n == 0) ===
+	cmpl	$0, -16(%rbp)
+	jne	.L2
+	movl	$0, %edx
+	movq	.refptr._ZSt4cout(%rip), %rax
+	movq	%rax, %rcx
+	call	_ZNSolsEi
+	jmp	.L3
+	
+	# === ПРОВЕРКА: else if (n == 1) ===
 .L2:
-	cmpl	$5, -8(%rbp)                 # сравниваем i с 5 (вычитаем 5 из i, результат в невидимый регистр)
-	jle	.L3                          # если i <= 5 (флаг меньше или равно), прыгаем в тело цикла .L3
-	# если i > 5, то идём дальше (выход из цикла)
+	cmpl	$1, -16(%rbp)
+	jne	.L4
+	movl	$1, %edx
+	movq	.refptr._ZSt4cout(%rip), %rax
+	movq	%rax, %rcx
+	call	_ZNSolsEi
+	jmp	.L3
 	
-	# === 5. ВЫВОД СТРОКИ "Sum = " (operator<< для строки) ===
-	leaq	.LC0(%rip), %rax             # загружаем адрес строки "Sum = " в rax
-	movq	%rax, %rdx                   # кладём адрес во второй аргумент (rdx)
-	movq	.refptr._ZSt4cout(%rip), %rax # загружаем адрес объекта cout
-	movq	%rax, %rcx                   # кладём cout в первый аргумент (rcx)
-	call	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc  # вызов operator<< (вывод строки)
+	# === else (цикл для n >= 2) ===
+.L4:
+	movl	$2, -12(%rbp)                # i = 2 (счётчик цикла)
+	jmp	.L5
 	
-	# === 6. ВЫВОД ЧИСЛА sum (operator<< для int) ===
-	movq	%rax, %rcx                   # результат предыдущего вызова (cout) - первый аргумент
-	movl	-4(%rbp), %eax               # загружаем значение sum в eax
-	movl	%eax, %edx                   # кладём sum во второй аргумент (edx)
-	call	_ZNSolsEi                     # вызов operator<< (вывод числа)
+	# === ТЕЛО ЦИКЛА ===
+.L6:
+	movl	-4(%rbp), %edx               # берём a
+	movl	-8(%rbp), %eax               # берём b
+	addl	%edx, %eax                   # a + b
+	movl	%eax, -20(%rbp)              # c = a + b
+	movl	-8(%rbp), %eax               # берём b
+	movl	%eax, -4(%rbp)               # a = b
+	movl	-20(%rbp), %eax              # берём c
+	movl	%eax, -8(%rbp)               # b = c
+	addl	$1, -12(%rbp)                # i++
 	
-	# === 7. ВЫВОД ПЕРЕВОДА СТРОКИ (endl) ===
-	movq	%rax, %rcx                   # результат предыдущего вызова - первый аргумент
+	# === ПРОВЕРКА УСЛОВИЯ ЦИКЛА ===
+.L5:
+	movl	-12(%rbp), %eax
+	cmpl	-16(%rbp), %eax              # сравниваем i с n
+	jle	.L6                          # если i <= n, прыгаем в тело
+	
+	# === ВЫВОД РЕЗУЛЬТАТА ===
+	movl	-8(%rbp), %eax               # берём b (результат)
+	movl	%eax, %edx
+	movq	.refptr._ZSt4cout(%rip), %rax
+	movq	%rax, %rcx
+	call	_ZNSolsEi                   # вывод числа
+	
+	# === ВЫВОД endl ===
+.L3:
 	movq	.refptr._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(%rip), %rax
-	movq	%rax, %rdx                   # кладём адрес endl во второй аргумент
-	call	_ZNSolsEPFRSoS_E              # вызов operator<< (вывод endl)
+	movq	%rax, %rdx
+	movq	.refptr._ZSt4cout(%rip), %rax
+	movq	%rax, %rcx
+	call	_ZNSolsEPFRSoS_E
 	
-	# === 8. ЭПИЛОГ ФУНКЦИИ (возврат из main) ===
+	# === ВОЗВРАТ ИЗ main ===
 	movl	$0, %eax                     # return 0
-	addq	$48, %rsp                    # очищаем стек (освобождаем 48 байт)
-	popq	%rbp                         # восстанавливаем старый %rbp
-	ret                                 # возвращаемся в вызывающую функцию
+	addq	$64, %rsp
+	popq	%rbp
+	ret
 	.seh_endproc
-	.section .rdata,"dr"
-_ZNSt8__detail30__integer_to_chars_is_unsignedIjEE:
-	.byte	1
-_ZNSt8__detail30__integer_to_chars_is_unsignedImEE:
-	.byte	1
-_ZNSt8__detail30__integer_to_chars_is_unsignedIyEE:
-	.byte	1
-	.def	__main;	.scl	2;	.type	32;	.endef
-	.ident	"GCC: (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 14.2.0"
-	.def	_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc;	.scl	2;	.type	32;	.endef
-	.def	_ZNSolsEi;	.scl	2;	.type	32;	.endef
-	.def	_ZNSolsEPFRSoS_E;	.scl	2;	.type	32;	.endef
-	.section	.rdata$.refptr._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_, "dr"
-	.globl	.refptr._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
-	.linkonce	discard
-.refptr._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_:
-	.quad	_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
-	.section	.rdata$.refptr._ZSt4cout, "dr"
-	.globl	.refptr._ZSt4cout
-	.linkonce	discard
-.refptr._ZSt4cout:
-	.quad	_ZSt4cout
 ```
 
 ## 3. Преобразование программы в модульную и разработка Makefile
 
-<img width="235" height="127" alt="image" src="https://github.com/user-attachments/assets/e3f34a5b-494d-475e-99fb-de732eb629c4" />
+<img width="223" height="143" alt="image" src="https://github.com/user-attachments/assets/d2995b97-c035-4973-b151-9f75b39a705a" />
 
 ### main.cpp
 
-<img width="344" height="183" alt="image" src="https://github.com/user-attachments/assets/e3155691-e863-4e19-9221-e864dff92f22" />
+<img width="511" height="217" alt="image" src="https://github.com/user-attachments/assets/6782c33a-84f9-48a6-8116-1c275749305a" />
 
-### sum.cpp
+### fibonacci_module.cpp
 
-<img width="293" height="193" alt="image" src="https://github.com/user-attachments/assets/eb4fc877-c8df-43fe-a6a5-48bf5a344e57" />
+<img width="375" height="262" alt="image" src="https://github.com/user-attachments/assets/3ce73db5-fc7d-4167-8816-137cfa849549" />
 
-### sum.h
+### fibonacci.h
 
-<img width="217" height="109" alt="image" src="https://github.com/user-attachments/assets/cd37a9ed-7fbe-4adb-bc25-1fe5c41873dc" />
+<img width="346" height="148" alt="image" src="https://github.com/user-attachments/assets/b7dc5ba3-a6d3-41cf-9460-2ebd09944a78" />
 
 ### Makefile
 
-<img width="433" height="338" alt="image" src="https://github.com/user-attachments/assets/8ae0d48b-eb80-40df-a1d1-2b8cc9aca4e5" />
+<img width="477" height="347" alt="image" src="https://github.com/user-attachments/assets/f709f8ee-752d-43d8-879e-bdd9ab0b2f9f" />
 
 ### Сборка
 
