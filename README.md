@@ -1,4 +1,4 @@
-<img width="235" height="127" alt="image" src="https://github.com/user-attachments/assets/e034bbb0-9576-49d2-a808-6b3788a89773" /># Linux_lab
+# Linux_lab
 
 1. Реализация функции на C++
 <img width="297" height="174" alt="image" src="https://github.com/user-attachments/assets/177c2849-1e9b-4601-8613-a716f472dff5" />
