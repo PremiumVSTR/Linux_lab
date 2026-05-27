@@ -128,7 +128,7 @@ main:
 	.seh_endproc
 ```
 
-### Вторая оптимизация
+### Вторая оптимизация (-O2)
 ```
 	.file	"fibonacci.cpp"
 	.text
